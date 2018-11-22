@@ -31,20 +31,34 @@ amoun -> integer
 in order to create transaction you should add these parameters in you request
 
 POST      | api/transactions                       -> create transaction
+
 GET|HEAD  | api/transactions                       -> get all transactions
+
 GET|HEAD  | api/transactions/balance               -> get the balance
+
 DELETE    | api/transactions/{id}                  -> delete transactin 
+
 PUT|PATCH | api/transactions/{id}                  -> edit transaction
+
 GET|HEAD  | api/transactions/{id}                  -> get transaction by id
+
 GET|HEAD  | api/transactions/filter{query string}  -> filter transactions
+
+
+<pre>You can add as many filter as you want in App\Http\Filters directory and add them to $filters array in TransactionFilterIndex.php file;</pre>
+
 query string options :
+<pre>
 ?expense          -> get all expenses
+
 ?income           -> get all incomes
+
 ?date=yyyy-mm-dd  -> transactions created on this date
+
 ?amount={integer} -> filter transactions by amount
 
 you can combine filters : api/transactions/filter?income=&date=2018-11-10&amount=20000
-
+</pre>
 
  
 
